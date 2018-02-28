@@ -1,41 +1,21 @@
-let clickers = 50;
-let startTime = Date.now();
+const canvas = document.querySelector("#board canvas");
+const ctx = canvas.getContext("2d");
 
-// position element in the DOM
-function sync(dom, pos) {
-    dom.style.left = `${pos.x}px`;
-    dom.style.top = `${pos.y}px`;
-}
+const { width: w, height: h } = canvas;
 
-function addClicker() {
-    const pos = {
-        x: Math.random() * 500,
-        y: Math.random() * 300
-    };
-    const img = new Image();
-    img.src = "res/images/rick.png";
-    img.style.position = "absolute";
-    img.addEventListener("click", removeClicker, false);
+ctx.fillStyle = "black";
+ctx.fillRect(0, 0, w, h);
+ctx.fillStyle = "#555";
 
-    document.querySelector("#board").appendChild(img);
-    sync(img, pos);
-}
+let x, y, radius;
 
-function removeClicker(e) {
-    e.target.parentNode.removeChild(e.target);
-    clickers--;
-    checkGameOver();
-}
+for (let i = 0; i < 550; i++) {
+    x = Math.random() * w;
+    y = Math.random() * h;
+    radius = Math.random() * 3;
 
-function checkGameOver() {
-    document.querySelector("#remain").innerHTML = clickers;
-    if (clickers === 0) {
-        const taken = Math.round((Date.now() - startTime) / 1000);
-        alert(`De-rick-ed in ${taken} seconds!`);
-    }
-}
-
-// Add all the Ricks!
-for (let i = 0; i < clickers; i++) {
-    addClicker();
+    // draw the star!
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+    ctx.fill();
 }
