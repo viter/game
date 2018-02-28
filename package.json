@@ -1,0 +1,26 @@
+{
+  "name": "game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "budo src/main.js:build.js --live -- -t [ babelify --presets [ env ] ]"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viter/game.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viter/game/issues"
+  },
+  "homepage": "https://github.com/viter/game#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
+    "budo": "^11.1.7"
+  }
+}

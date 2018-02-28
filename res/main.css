@@ -1,5 +1,16 @@
+body {
+  margin: 30px auto;
+  text-align: center;
+  background-color: #161414;
+  color: #999;
+  font-family: Helvetica, sans-serif;
+}
+
 #board {
     width: 640px;
     height: 480px;
     margin: auto;
+    position: relative;
+    background-color: #8CD;
 }
+
